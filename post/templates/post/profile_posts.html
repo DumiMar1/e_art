@@ -1,0 +1,37 @@
+{% extends 'users/base.html' %}
+{% block title %} he {% endblock %}
+
+{% block content %}
+    {% for user in profile %}
+    <table>
+        <tr>
+            <th>{{user.user.username}}</th>
+            <tr><img src="{{user.avatar.url}}"></tr>
+        <td> {{user.bio}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+            <div class="container">
+            <div class="row">
+                {% for post in posts %}
+
+                <div class="col-sm-4 mb-3">
+                    <div class="col-3 py-3">
+                        <div class="card" style="width: 380px;">
+
+                              <a href="{{ post.image.url }}"><img src="{{ post.image.url }}" class="card-img-top ratio ratio-1x1" width="300"></a>
+                              <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">Description:{{post.description}}</p>
+                                <a href="#" class="btn btn-primary">Price: {{post.price}}$</a>
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}

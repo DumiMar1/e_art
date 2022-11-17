@@ -1,0 +1,67 @@
+{% extends 'users/base.html' %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+
+{% for post in post %}
+
+<h1 style="text-transform:capitalize;">{{post.title}}</h1>
+
+<div class="container1">
+    <div class="img">
+        <img class="thumbnail" src="{{ post.image.url}}">
+    </div>
+    <div class="float-container">
+        <div class="float-child">
+            <h5>Description</h5>
+            <p>{{post.description}}</p>
+        </div>
+        <div class="float-child1">
+            <div class="post-info">
+                <img src="{{post.user.profile.avatar.url}}" class="avatar" width="50px">
+                    <div class="post-info_text">
+                        <a href="{% url 'post:user-profile' pk=post.user.pk %}">{{post.user.first_name}} {{post.user.last_name}}</a>
+                        <p>{{post.date_publication}}</p>
+                    </div>
+            </div>
+
+            <p>{{post.user.profile.bio}}</p>
+        </div>
+   </div>
+
+    <div class="box">
+        <div class="btn-type">
+            <button class="btn1 update-cart" id="btn1"  data-post={{post.id}} data-action="modify" data-value="print">PRINT</button>
+            <button class="btn1 update-cart" id="btn2"  data-post={{post.id}} data-action="modify" data-value="digital">DIGITAL</button>
+        </div>
+        <button data-post={{post.id}} data-action="add" type="submit" class="btn update-cart">Add to cart</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+{% endfor %}
+
+<script>
+    var modButton1 = document.getElementById('btn1')
+
+    modButton1.addEventListener('click', function(){
+        modButton1.classList.add('clicked')
+        document.getElementById('btn2').classList.remove('clicked')
+    })
+
+    var modButton2 = document.getElementById('btn2')
+
+    modButton2.addEventListener('click', function(){
+        modButton2.classList.add('clicked')
+        document.getElementById('btn1').classList.remove('clicked')
+    })
+        
+  
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'users/base.html' %}
+
+{% block title %} Create Post {% endblock %}
+
+{% block content %}
+            <form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="container-fluid">
+                    <div class="container-sm">
+                      <div class="mb-3">
+                            <label class="form-label">{{user.username}}</label>
+
+                      </div>
+                      <div class="mb-3">
+
+                            {{form.as_p}}
+<!--                      </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="small mb-1">Price</label>-->
+<!--                            {{form.price}}-->
+
+<!--                      </div>-->
+<!--                      <div class="mb-3">-->
+<!--                            <label class="form-label">Upload Image</label>-->
+<!--                          {{form.image}}-->
+<!--                      </div>-->
+<!--                        <div class="mb-3">-->
+<!--                            <label class="form-label">Description</label>-->
+<!--                          {{form.description}}-->
+<!--                      </div>-->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </div>
+
+                </div>
+            </form>
+
+{% endblock %}

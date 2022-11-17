@@ -1,0 +1,31 @@
+{% extends 'users/base.html' %}
+{% block title %} Hello {% endblock %}
+
+{% block content %}
+<div class="page-container" xmlns="http://www.w3.org/1999/html">
+        <div class="grid-container">
+            {% for post in posts %}
+                <div class="grid-item">
+                    <a href="{% url 'post:post-view' pk=post.pk %}"><img src="{{ post.image.url }}" class="card-img-top " width="300"></a>
+<!--                    <h5 class="text" style="text-transform:capitalize;">{{ post.title }}</h5>-->
+<!--                    <p class="text">Description:</p>-->
+<!--                    <p class="text">{{post.description|truncatewords:"10"|linebreaks }}</p>-->
+                </div>
+
+<!--                        <div class="card" style="width: 380px;">-->
+<!--                              <a href="{% url 'post:post-view' pk=post.pk %}"><img src="{{ post.image.url }}" class="card-img-top ratio ratio-1x1" width="300"></a>-->
+<!--                              <div class="card-body">-->
+<!--                                <h5 class="card-title" style="text-transform:capitalize;">{{ post.title }}</h5>-->
+<!--                                <p class="card-text">Description:{{post.description|truncatewords:"10"|linebreaks }}</p>-->
+<!--                                  <a href="{% url 'post:user-profile' pk=post.user.pk %}"><p class="card-text">Artist: {{ post.user.first_name }} {{ post.user.last_name }}</p></a>-->
+<!--                                <a href="#" class="btn btn-primary">Price: {{post.price}}$</a>-->
+<!--                                <button data-post={{post.id}} data-action="add" type="button" class="btn btn-link update-cart"><i class="fa-solid fa-cart-plus fa-2xl"></i>-->
+<!--                                    </button>-->
+<!--                              </div>-->
+<!--                        </div>-->
+
+                {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+{% block title %} Modify Post {% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="container-fluid">
+                    <div class="container-sm">
+                      <div class="mb-3">
+                            <label class="form-label">{{user.username}}</label>
+
+                      </div>
+                      <div class="mb-3">
+
+                            {{form.as_p}}
+                                         <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </div>
+            </form>
+ {% endblock %}

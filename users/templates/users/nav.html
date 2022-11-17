@@ -1,0 +1,53 @@
+
+<div class="navbar">
+    <div class="brand"><a href="/" class="brand">E ART</a>
+    <a href="{% url 'post:explore' %}" id="explore">Explore</a>
+        </div>
+    <div class="search">
+    <form class="d-flex" role="search">
+                  {% csrf_token %}
+                    <input class="search-bar" type="search" placeholder="Search" aria-label="Search">
+<!--                    <button class="btnSearch" type="submit">Search</button>-->
+              </form>
+    </div>
+
+    <a href="{% url 'cart:cart-summary' %}" id="shopping"><i class="fa-solid fa-cart-shopping"></i></a>
+    {% if not user.is_authenticated %}
+    <a href="{% url 'login' %}" class="nav-item "><button type="button" class="btnLogIn">
+          Login
+        </button>
+        </a>
+    <a href="{% url 'users:users-register' %}" class="nav-item nav-link">
+        <button type="button" class="btnSignUp">
+          Sign up for free
+        </button>
+        </a>
+    {% else %}
+    <div class="user">
+        <a href="{% url 'users:users-profile' %}" id="user"><img src="{{user.profile.avatar.url}}" class="avatar" width="30px">
+            {{user.username}}</a>
+
+    </div>
+</div>
+
+    <div class="sidenav">
+        <ul>
+        <li><a href="{% url 'users:users-profile' %}">Profile</a></li>
+        <li><a href="{% url 'post:user-post' %}" >Post</a></li>
+        <li><a href="{% url 'post:user-file' %}" >View posts</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+            </ul>
+    </div>
+
+
+
+
+    {% endif %}
+
+
+<!--          <p id="cart-total">{{cartItems}}</p>-->
+
+
+</div>
+
+
