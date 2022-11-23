@@ -102,12 +102,14 @@
                 'address':null,
                 'city':null,
                 'zipcode':null,
+                'country':null,
             }
 
-            // shippingInfo.address = form.address.value
-            // shippingInfo.city = form.city.value
-            // shippingInfo.zipcode = form.zipcode.value
-            // }
+            shippingInfo.address = form.address.value
+            shippingInfo.city = form.city.value
+            shippingInfo.zipcode = form.zipcode.value
+            shippingInfo.country = form.country.value
+            
 
             if (user == 'AnonymousUser'){
                 userFormData.name = form.name.value

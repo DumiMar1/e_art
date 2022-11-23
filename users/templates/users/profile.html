@@ -1,6 +1,7 @@
 {% extends "users/base.html" %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
+<div class="page-container">
     <div class="row my-3 p-3">
         <img class="avatar" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
     </div>
@@ -41,4 +42,5 @@
             <button type="reset" class="btn btn-dark btn-lg">Reset</button>
         </form>
     </div>
+</div>
 {% endblock content %}
