@@ -36,3 +36,13 @@ def delete_file(sender, instance, *args, **kwargs):
     """ Deletes image files on `post_delete` """
     if instance.image:
         _delete_file(instance.image.path)
+
+
+class PostMeta(models.Model):
+    post = models.OneToOneField(Post, on_delete=models.CASCADE)
+    camera = models.TextField(max_length=256)
+    model= models.TextField(max_length=256)
+    aperture = models.FloatField(max_length=256)
+    shutter_speed = models.FloatField(max_length=256)
+    focal_length = models.FloatField(max_length=256)
+    iso = models.IntegerField(max_length=256)
