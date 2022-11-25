@@ -3,37 +3,18 @@
 {% block title %} Create Post {% endblock %}
 
 {% block content %}
+        <div class="form-upload">
             <form method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
-                <div class="container-fluid">
-                    <div class="container-sm">
-                      <div class="mb-3">
                             <label class="form-label">{{user.username}}</label>
+                            <!-- {{form.as_p}} -->
+                            <p>Title: {{form.title}}</p>
+                            <p>Price: {{form.price}}</p>
+                            <p>Upload image:{{form.image}}</p>
+                            <p>Description: {{form.description}}</p>
 
-                      </div>
-                      <div class="mb-3">
-
-                            {{form.as_p}}
-<!--                      </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="small mb-1">Price</label>-->
-<!--                            {{form.price}}-->
-
-<!--                      </div>-->
-<!--                      <div class="mb-3">-->
-<!--                            <label class="form-label">Upload Image</label>-->
-<!--                          {{form.image}}-->
-<!--                      </div>-->
-<!--                        <div class="mb-3">-->
-<!--                            <label class="form-label">Description</label>-->
-<!--                          {{form.description}}-->
-<!--                      </div>-->
                         <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </div>
-                </div>
-
-                </div>
             </form>
+        </div>
 
 {% endblock %}

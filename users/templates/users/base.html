@@ -31,7 +31,6 @@
         }
 const csrftoken = getToken('csrftoken');
 
-
     </script>
 
     <title>{% block title %} {% endblock %} </title>
@@ -40,8 +39,9 @@ const csrftoken = getToken('csrftoken');
 <!-- Navbar -->
 {% include 'users/nav.html' %}
 <!-- Navbar -->
-
+<div class="page-container">
 {% block content %}{% endblock %}
+</div>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -2,30 +2,17 @@
 {% block title %} Hello {% endblock %}
 
 {% block content %}
-<div class="page-container">
         <div class="grid-container">
             {% for post in posts %}
                 <div class="grid-item">
                     <a href="{% url 'post:post-view' pk=post.pk %}"><img src="{{ post.image.url }}" class="card-img-top "></a>
-<!--                    <h5 class="text" style="text-transform:capitalize;">{{ post.title }}</h5>-->
-<!--                    <p class="text">Description:</p>-->
-<!--                    <p class="text">{{post.description|truncatewords:"10"|linebreaks }}</p>-->
+                    <div class="middle">
+                        <div class="logo"><img src="{{post.user.profile.avatar.url}}" class="avatar" width="50px"></div>
+                        <div class="user-name"><p>{{ post.user.username}}</p></div>
+                        <div class="text"><p>{{ post.title }}</p></div>
+                    </div>
                 </div>
+                    {% endfor %}
 
-<!--                        <div class="card" style="width: 380px;">-->
-<!--                              <a href="{% url 'post:post-view' pk=post.pk %}"><img src="{{ post.image.url }}" class="card-img-top ratio ratio-1x1" width="300"></a>-->
-<!--                              <div class="card-body">-->
-<!--                                <h5 class="card-title" style="text-transform:capitalize;">{{ post.title }}</h5>-->
-<!--                                <p class="card-text">Description:{{post.description|truncatewords:"10"|linebreaks }}</p>-->
-<!--                                  <a href="{% url 'post:user-profile' pk=post.user.pk %}"><p class="card-text">Artist: {{ post.user.first_name }} {{ post.user.last_name }}</p></a>-->
-<!--                                <a href="#" class="btn btn-primary">Price: {{post.price}}$</a>-->
-<!--                                <button data-post={{post.id}} data-action="add" type="button" class="btn btn-link update-cart"><i class="fa-solid fa-cart-plus fa-2xl"></i>-->
-<!--                                    </button>-->
-<!--                              </div>-->
-<!--                        </div>-->
-
-                {% endfor %}
-
-        <div>
-    </div>
+            </div>
 {% endblock %}
