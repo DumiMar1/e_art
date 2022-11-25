@@ -10,11 +10,36 @@ for(var i = 0; i < updateBtns.length; i++){
 
         console.log('USER:', user)
         if(user === 'AnonymousUser'){
-            console.log('Not logged in')
+            addCookieItem(postId, action)
         }else{
             updateUserOrder(postId, action, itemValue)
          }
     })
+
+}
+
+function addCookieItem(postId, action){
+    console.log('not logged in.. ')
+
+    if (action == 'add'){
+        if(cart[postId] == undefined){
+            cart[postId] = {'quantity':1}
+        }else{
+            cart[postId]['quantity'] += 1
+        }
+    }
+
+    if (action == 'remove'){
+        cart[postId]['quantity'] -= 1
+
+        if(cart[postId]['quantity]'] <= 0){
+            console.log('remove item')
+            delete cart[postId]
+        }
+    }
+    console.log('cart:', cart)
+    document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    location.reload()
 
 }
 

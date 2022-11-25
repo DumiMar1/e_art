@@ -13,7 +13,7 @@ User = get_user_model()
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=19, decimal_places=2)
     image = models.ImageField(default=None, upload_to='users_posts')
     description = models.TextField(max_length=1000)
     date_publication = models.DateTimeField(auto_now_add=True)

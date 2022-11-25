@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from post.models import Post
 from users.models import Profile
 from cart.models import Order
+from cart.utils import cart_data
 
 
 # Create your views here.
@@ -26,18 +27,11 @@ def file_upload(request):
 
 
 def explore(request):
-    if request.user.is_authenticated:
-        user = request.user
-        order, created = Order.objects.get_or_create(user=user, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
-        cartItems = order['get_cart_items']
+    data = cart_data(request)
+    cart_items = data['cartItems']
 
     posts = Post.objects.all()
-    context = {'posts': posts, 'cartItems': cartItems}
+    context = {'posts': posts, 'cartItems': cart_items}
     return render(request, 'post/post_list.html', context)
 
 
