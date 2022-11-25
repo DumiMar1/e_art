@@ -6,10 +6,15 @@
             {% for post in posts %}
                 <div class="grid-item">
                     <a href="{% url 'post:post-view' pk=post.pk %}"><img src="{{ post.image.url }}" class="card-img-top "></a>
+                    
+                    <div class="middle-top">
+                        <div class="price"><p>${{post.price}}</p></div>
+                    </div>
                     <div class="middle">
                         <div class="logo"><img src="{{post.user.profile.avatar.url}}" class="avatar" width="50px"></div>
                         <div class="user-name"><p>{{ post.user.username}}</p></div>
                         <div class="text"><p>{{ post.title }}</p></div>
+                        
                     </div>
                 </div>
                     {% endfor %}

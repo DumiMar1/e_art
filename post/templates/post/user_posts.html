@@ -3,37 +3,21 @@
 
 {% block content %}
 
-        <div class="container">
-            <div class="row">
+        <div class="grid-container">
                 {% if posts %}
                     {% for post in posts %}
-                        <div class="col-sm-4 mb-3">
-                            <div class="col-3 py-3">
-                                <div class="card" style="width: 380px;">
-                                      <a href="{{ post.image.url }}"><img src="{{ post.image.url }}" class="card-img-top ratio ratio-1x1" width="300"></a>
-                                      <div class="card-body">
-                                        <h5 class="card-title">{{ post.title }}</h5>
-                                        <p class="card-text">Description:{{post.description}}</p>
-                                          <p class="card-text">Username:{{post.user.username}}</p>
-                                          <p class="card-text">Artist: {{ post.user.first_name }} {{ post.user.last_name }}</p>
-                                        <a href="#" class="btn btn-primary">Price: {{post.price}}$</a>
-                                          <br>
-                                          <p></p>
-                                          <p> <a href="{% url 'post:post-modify' id=post.id %} " class="btn btn-primary"> Modify</a> </p>
-                                         <p>   <a href="{% url 'post:post-delete' id=post.id %}" class="btn btn-danger">Delete</a></p>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="grid-item">
+                                      <a href="{{ post.image.url }}"><img src="{{ post.image.url }}" class="card-img-top"></a>
+                                      <div class="middle">
+                                        <a href="{% url 'post:post-modify' id=post.id %} " class="btn-profile"> Modify</a>
+                                        <a href="{% url 'post:post-delete' id=post.id %}" class="btn-profile">Delete</a>
+                        </div></div>
                         {% endfor %}
                 {% else %}
                 <div class="container-fluid text-align: center;" id="post">
                     <h3 class="bg-primary"> You have no items.</h3>
-
                 </div>
                 {% endif %}
-
-            </div>
         </div>
 
 {% endblock %}

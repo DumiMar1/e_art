@@ -40,7 +40,7 @@ h3 {
  }
 
 body {
-    background-color:#0B1115;
+    background-color:#0b1115;
     font-family: 'Courier New', monospace;
 }
 
@@ -275,7 +275,22 @@ nav a:not(#user, #nav-title):hover{
     backface-visibility: hidden;
     
 }
+.middle-top{
+    display: flex;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width:400px;
+    justify-content: center;
+    background-color: #232323;
+    opacity: 0.1;
 
+}
 .middle {
     display: flex;
     transition: .5s ease;
@@ -291,9 +306,12 @@ nav a:not(#user, #nav-title):hover{
   }
 
 .grid-item:hover .image {
-    opacity: 0.3;
+    opacity: 0.1;
   }
 .grid-item:hover .middle {
+    opacity: 1;
+  }
+.grid-item:hover .middle-top {
     opacity: 1;
   }
   .logo{
@@ -315,6 +333,28 @@ nav a:not(#user, #nav-title):hover{
 .text{
     margin-left:15%;
 }
+
+.middle a:link{
+    text-decoration: none;
+}
+
+.btn-profile {
+    background-color: #0b1115;
+    width: calc(100% / 3);
+    padding:5px;
+    color:rgb(255, 255, 255);
+    border:1px solid #484747;
+    border-radius: 5px;
+    margin: auto;
+    text-decoration: none;
+}
+
+
+
+.btn-profile:hover{
+    background-color: #293136;
+}
+
 /*--------- CHECK OUT ---------*/
 
 .container{
@@ -449,7 +489,9 @@ flex-direction:row;
     width: 60%;
     background-color:#232323;
     box-shadow: 0 1px 3px rgb(0, 0, 0);
-    align-content: center;
+    border: 0.1px solid rgb(120, 120, 120);
+    flex-direction: column;
+    height: auto;
 }
 
 form{
@@ -458,4 +500,17 @@ form{
 
 form p{
     padding: 10px;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background-color: #4f4f4f;
+    color:white;
+    align-items: center;
+}
+header a{
+    margin:auto;
 }

@@ -1,11 +1,10 @@
 {% extends "users/base.html" %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
-<div class="page-container">
-    <div class="form-container">
-    <div class="row my-3 p-3">
+
+    <!-- <div class="row my-3 p-3">
         <img class="avatar" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
-    </div>
+    </div> -->
     {% if user_form.errors %}
         <div class="alert alert-danger alert-dismissible" role="alert">
             <div id="form_errors">
@@ -18,31 +17,22 @@
             </button>
         </div>
     {% endif %}
-    <div class="form-content">
+    <div class="form-upload">
+        <header class="header"><a>{{user.username}}</a></header>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Username:</label>
-                            {{ user_form.username }}
-                        <label class="small mb-1">Email:</label>
-                            {{ user_form.email }}
-                    </div>
-                    <div class="form-group">
-                        <a href="{% url 'password_change' %}">Change Password</a>
-                        <hr>
+            
+        
+                        <p>{{ user_form.username }}</p>
+                        <p>{{ user_form.email }}</p>
+                        <p><a href="{% url 'password_change' %}" class="btn-profile">Change Password</a></p>
                         <label class="small mb-1">Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                    </div>
-                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
-                </div>
-            </div>
-            <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+                        <p>{{ profile_form.avatar }}</p>
+                    <p><label class="btn-profile">Bio:</label> {{ profile_form.bio }}</p>
+           
+        
+            <button type="submit" class="btn-profile">Save Changes</button>
+            <button type="reset" class="btn-profile">Reset</button>
         </form>
     </div>
-</div>
-</div>
 {% endblock content %}

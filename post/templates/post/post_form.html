@@ -4,10 +4,9 @@
 
 {% block content %}
         <div class="form-upload">
+            <header class="header"><a>CREATE NEW POST</a></header>
             <form method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
-                            <label class="form-label">{{user.username}}</label>
-                            <!-- {{form.as_p}} -->
                             <p>Title: {{form.title}}</p>
                             <p>Price: {{form.price}}</p>
                             <p>Upload image:{{form.image}}</p>

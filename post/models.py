@@ -45,4 +45,4 @@ class PostMeta(models.Model):
     aperture = models.FloatField(max_length=256)
     shutter_speed = models.FloatField(max_length=256)
     focal_length = models.FloatField(max_length=256)
-    iso = models.IntegerField(max_length=256)
+    iso = models.IntegerField()
