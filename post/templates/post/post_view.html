@@ -6,41 +6,50 @@
 
 {% for post in post %}
 
-<h1 style="text-transform:capitalize;">{{post.title}}</h1>
+<!-- <h1 style="text-transform:capitalize;">{{post.title}}</h1> -->
 
 <div class="container1">
-    <div class="img">
-        <img class="thumbnail" src="{{ post.image.url}}">
+    <div class="img-container">
+        <img class="card-img-top" src="{{ post.image.url}}">
     </div>
-    <div class="float-container">
-        <div class="float-child">
+    <div class="detail-container">
+        <div class="description-container">
             <h5>Description</h5>
             <p>{{post.description}}</p>
+            <p>{{post.date_publication}}</p>
         </div>
-        <div class="float-child1">
-            <div class="post-info">
-                <img src="{{post.user.profile.avatar.url}}" class="avatar" width="50px">
-                    <div class="post-info_text">
-                        <a href="{% url 'post:user-profile' pk=post.user.pk %}">{{post.user.first_name}} {{post.user.last_name}}</a>
-                        <p>{{post.date_publication}}</p>
-                    </div>
+        <div class="photo-info-container">
+            <div class="photo-item"><img src="https://img.icons8.com/ios/50/null/camera--v3.png"/>
+                <p>{{post.camera}}<br>{{post.model}}</p>
             </div>
-
-            <p>{{post.user.profile.bio}}</p>
+            <div class="photo-item"><img src="https://img.icons8.com/ios-filled/50/null/frequency-f.png"/>
+                <p>/{{post.aperture}}</p>
+            </div>
+            <div class="photo-item"><img src="https://img.icons8.com/ios/50/null/focal-length.png"/>
+                <p>{{post.focal_length}}</p>
+            </div>
+            <div class="photo-item"><img src="https://img.icons8.com/ios-filled/50/null/iso.png"/>
+                <p>{{post.iso_speed}}100</p>
+            </div>
+            <div class="photo-item"><h3>Shutter Speed</h3>
+                <p>{{post.shutter_speed}}</p>
+            </div>
+            
+            
+            
+            
+            
+        </div>
+        <div class="user-container">
+            <img src="{{post.user.profile.avatar.url}}" class="avatar" width="50px">
+            <a href="{% url 'post:user-profile' pk=post.user.pk %}"><p>{{post.user.first_name}}
+                 {{post.user.last_name}}</p></a>
+                 <p>{{post.user.profile.bio}}</p>
+        </div>
+        <div class="button-container">
+            <button data-post={{post.id}} data-action="add" type="submit" class="btn-profile update-cart">Add to cart</button>
         </div>
    </div>
-
-    <div class="box">
-        <div class="btn-type">
-            <button class="btn1 update-cart" id="btn1"  data-post={{post.id}} data-action="modify" data-value="print">PRINT</button>
-            <button class="btn1 update-cart" id="btn2"  data-post={{post.id}} data-action="modify" data-value="digital">DIGITAL</button>
-        </div>
-        <button data-post={{post.id}} data-action="add" type="submit" class="btn update-cart">Add to cart</button>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
 </div>
 
 {% endfor %}

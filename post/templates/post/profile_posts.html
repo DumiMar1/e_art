@@ -3,12 +3,12 @@
 
 {% block content %}
     {% for user in profile %}
-    <div class="form-upload"></div>
-    <header class="header"><a>{{user.user.username}}</a></header>
-            
-            <img src="{{user.avatar.url}}">
-        {{user.bio}}
-    
+    <table>
+        <tr>
+            <th>{{user.user.username}}</th>
+            <tr><img src="{{user.avatar.url}}"></tr>
+        <td> {{user.bio}}</td>
+        </tr>
         {% endfor %}
 
     </table>
