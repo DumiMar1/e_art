@@ -41,7 +41,7 @@ h3 {
 
 body {
     background-color:#0b1115;
-    font-family: 'Courier New', monospace;
+    font-family: 'Carrois Gothic', sans-serif;
 }
 
 p{
@@ -60,69 +60,61 @@ table{
 }
 
 /*-------------- Post View ---------- */
-#button1{
-    padding:3px;
-    border:3px;
-    margin:3px;
-}
-
-
-.img {
-   width: 100%;
-   margin: auto;
-
+.img-container {
+    width: 100%;
+    height:auto;
 }
 
 .thumbnail {
-    width:70%;
-    height:70%;
-    object-fit: cover;
-     margin-left: auto;
-  margin-right: auto;
-  display: block;
-
-}
-
-.float-child {
-    width: 50%;
-    float: left;
-    padding: 20px;
-    font-family: 'Roboto', sans-serif;
-
-}
-
-.float-child1{
-    width: 50%;
-    float: left;
-    padding: 20px;
-
-    border-left:1px solid rgba(0, 20, 14, 0.1);
-    font-family: 'Roboto', sans-serif;
-
-}
-div.float-child1:hover{
-     background-image: linear-gradient(rgba(162, 232, 181, 0.1), white);
-}
-div.float-child:hover{
-
-    background-image: linear-gradient(rgba(162, 232, 181, 0.1), white);
-}
-
-.float-container {
-    height:400px;
-    border: 3px solid #fff;
-    padding: 20px;
     width:100%;
-    background-color:white;
-    border-radius:25px;
-}
-.container1 {
-    width:70%;
-    margin:auto;
     height:100%;
-    border-left:1px solid rgba(0, 20, 14, 0.1);
-    border-right:1px solid rgba(0, 20, 14, 0.1);
-    border-bottom:1px solid black;
+}
+
+.detail-container {
+    display: flex;
+    height: auto;
+    width:70%;
+    flex-direction: column;
+    gap:20px;
+    padding-left: 25px;
+    justify-items: center;
+}
+
+.detail-container div{
+    height: 140px;
+    color: black;
+    padding: 10px;
+}
+
+.detail-container p{
+    color: #0B1115;
+}
+
+.photo-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap:5px;
+
+}
+.photo-info-container img{
+    width: 50px;
+    height: 50px;
+}
+.photo-item{
+    display: block;
+}
+
+.container1 {
+    height: 100%;
+    display: flex;
+    width:85%;
+    margin: auto;
+    align-items: center;
+    margin-top: 100px;
+    box-shadow:1px #0B1115;
+    padding: 5px;
+    background-color: #fffdfd;
 
 }
 .avatar {
@@ -317,11 +309,11 @@ nav a:not(#user, #nav-title):hover{
   .logo{
     width: 50px;
     height: 50px;
-    padding: 5px;
+    padding: 10px;
   }
   .user-name{
     display: none;
-    padding: 5px;
+    padding: 10px;
   }
   .logo:hover + .user-name{
     background-color: #232323;

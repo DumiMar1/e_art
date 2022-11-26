@@ -19,27 +19,25 @@ class Post(models.Model):
     image = models.ImageField(default=None, upload_to='users_posts')
     description = models.TextField(max_length=1000)
     date_publication = models.DateTimeField(auto_now_add=True)
-    camera = models.TextField(max_length=256)
-    model= models.TextField(max_length=256)
-    aperture = models.FloatField(max_length=256)
-    shutter_speed = models.FloatField(max_length=256)
-    focal_length = models.FloatField(max_length=256)
-    iso = models.IntegerField()
+    camera = models.TextField(editable=False, default=None, max_length=100, null=True, blank=True)
+    model= models.TextField(editable=False, default=None, max_length=100, null=True, blank=True)
+    aperture = models.FloatField(max_length=100, editable=False, default=None, null=True, blank=True)
+    shutter_speed = models.CharField(editable=False, default=None, max_length=100, null=True, blank=True)
+    focal_length = models.CharField(editable=False, default=None, max_length=100, null=True, blank=True)
+    iso_number = models.CharField(editable=False, default=None, max_length=100, null=True, blank=True)
 
     exif = ExifField(
 
         source='image',
         denormalized_fields={
             'camera': exifgetter('Make'),
-            'mode':exifgetter('Model'),
-            'aperture':exifgetter('Aperture'),
+            'model':exifgetter('Model'),
+            'aperture':exifgetter('FNumber'),
             'shutter_speed':exifgetter('ShutterSpeedValue'),
-            'focal_length':exifgetter('FNumber'),
-            'iso':exifgetter('ISOSpeedRatings'),
+            'focal_length':exifgetter('FocalLength'),
+            'iso_number':exifgetter('ISOSpeedRatings'),
         },
     )
-
-
 
 
     def __str__(self):
