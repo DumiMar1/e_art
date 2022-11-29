@@ -31,6 +31,21 @@ def explore(request):
     cart_items = data['cartItems']
 
     posts = Post.objects.all()
+    order_by = request.GET.get('sort')
+    if order_by == 'a_z':
+        posts = posts.order_by('title')
+    elif order_by == 'z_a':
+        posts = posts.order_by('-title')
+    elif order_by == 'price_low':
+        posts = posts.order_by('price')   
+    elif order_by == 'price_high':
+        posts = posts.order_by('-price')   
+    elif order_by == 'date_old':
+        posts = posts.order_by('date_publication')   
+    else:
+        posts = posts.order_by('-date_publication')
+
+
     context = {'posts': posts, 'cartItems': cart_items}
     return render(request, 'post/post_list.html', context)
 

@@ -2,6 +2,20 @@
 {% block title %} Hello {% endblock %}
 
 {% block content %}
+<div class="filter" style="margin-top:50px;">
+    <form action="{% url 'post:explore' %}">
+        <span style="color:white;">Sort by:</span>
+        <select name="sort">
+          <option value="a_z">title(A-Z)</option>
+          <option value="z_a">title(Z-A)</option>
+          <option value="price_low">price(min-max)</option>
+          <option value="price_high">price(max-min)</option>
+          <option value="date_old">published-date(olrder-)</option>
+          <option value="date_new">published-date(newest)</option>
+          <input type="submit" value="Sort">
+        </select>
+      </form>
+</div>
         <div class="grid-container">
             {% for post in posts %}
                 <div class="grid-item">

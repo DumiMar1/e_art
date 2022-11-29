@@ -227,6 +227,13 @@ nav a:not(#user, #nav-title):hover{
     /* border:1px rgba(0, 0, 0, 0.1) solid; */
     border-top:none;
     background-color: #0B1115;
+    flex-direction: column;
+}
+
+.filter{
+    margin: auto;
+    width: 80%;
+    padding: 20px;
 }
 
 .grid-container{
