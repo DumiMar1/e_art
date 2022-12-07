@@ -40,7 +40,7 @@ h3 {
  }
 
 body {
-    background-color:#0b1115;
+    background-color:#000000;
     font-family: 'Carrois Gothic', sans-serif;
 }
 
@@ -162,8 +162,8 @@ nav{
     display: flex;
     align-items: baseline;
     padding: 10px 375px;
-    background-color: #232323;
-    box-shadow: 0 1px 3px rgb(0, 0, 0); 
+    background-color: #000000;
+    box-shadow: 0 1px 3px rgb(47, 47, 47); 
     position: fixed; 
     top: 0; 
     width: 100%;
@@ -226,7 +226,7 @@ nav a:not(#user, #nav-title):hover{
     margin-top:100px;
     /* border:1px rgba(0, 0, 0, 0.1) solid; */
     border-top:none;
-    background-color: #0B1115;
+    background-color: #000000;
     flex-direction: column;
 }
 
@@ -382,7 +382,6 @@ nav a:not(#user, #nav-title):hover{
 
 .top{
     height:80%;
-    content-align:center;
 }
 
 .items {

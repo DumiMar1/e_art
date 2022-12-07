@@ -5,6 +5,7 @@ from post.models import Post
 from users.models import Profile
 from cart.models import Order
 from cart.utils import cart_data
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 # Create your views here.
@@ -29,9 +30,10 @@ def file_upload(request):
 def explore(request):
     data = cart_data(request)
     cart_items = data['cartItems']
-
     posts = Post.objects.all()
     order_by = request.GET.get('sort')
+    page = request.GET.get('page')
+    paginator = Paginator(posts, 6)
     if order_by == 'a_z':
         posts = posts.order_by('title')
     elif order_by == 'z_a':
@@ -44,7 +46,13 @@ def explore(request):
         posts = posts.order_by('date_publication')   
     else:
         posts = posts.order_by('-date_publication')
-
+    
+    # try:
+    #     posts = paginator.page(page)
+    # except PageNotAnInteger:
+    #     posts = paginator.page(1)
+    # except EmptyPage:
+    #     posts = paginator.page(paginator.num_pages)
 
     context = {'posts': posts, 'cartItems': cart_items}
     return render(request, 'post/post_list.html', context)
