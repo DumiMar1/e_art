@@ -20,19 +20,17 @@
         </div>
         <div class="photo-info-container">
             <div class="photo-item"><img src="https://img.icons8.com/ios/50/null/camera--v3.png"/>
-                <p>{{post.camera}}<br>{{post.model}}</p>
+                <p>{{post.imagedata.camera}}<br>{{post.imagedata.model}}</p>
             </div>
             <div class="photo-item"><img src="https://img.icons8.com/ios-filled/50/null/frequency-f.png"/>
-                <p>/{{post.aperture}}</p>
+                <p>/{{post.imagedata.aperture}}</p>
             </div>
             <div class="photo-item"><img src="https://img.icons8.com/ios/50/null/focal-length.png"/>
-                <p>{{post.focal_length}}</p>
+                <p>{{post.imagedata.focal_length}}</p>
             </div>
-            <div class="photo-item"><img src="https://img.icons8.com/ios-filled/50/null/iso.png"/>
-                <p>{{post.iso_speed}}100</p>
-            </div>
-            <div class="photo-item"><h3>Shutter Speed</h3>
-                <p>{{post.shutter_speed}}</p>
+            <div class="photo-item"><h3>Shutter</h3>
+                <h3> Speed</h3>
+                <p>{{post.imagedata.shutter_speed}}</p>
             </div>
             
             

@@ -40,10 +40,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # --------My apps-------
-    'users',
-    'social_django',
-    'post',
-    'cart',
+    
     
     # --------Django apps ------
     'django.contrib.admin',
@@ -52,6 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
+    'social_django',
+    'post',
+    'cart',
 
 
 ]
@@ -165,3 +166,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = str(os.getenv('EMAIL_USER'))
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_PASSWORD'))
+
+
+AUTH_USER_MODEL = 'users.CustomAuthUser'
+
+LOGOUT_REDIRECT_URL = 'login'

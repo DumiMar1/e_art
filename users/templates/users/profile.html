@@ -23,7 +23,8 @@
             {% csrf_token %}
             
         
-                        <p>{{ user_form.username }}</p>
+                        <p>{{ user_form.first_name }}</p>
+                        <p>{{ user_form.last_name }}</p>
                         <p>{{ user_form.email }}</p>
                         <p><a href="{% url 'password_change' %}" class="btn-profile">Change Password</a></p>
                         <label class="small mb-1">Change Avatar:</label>
